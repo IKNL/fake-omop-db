@@ -1,0 +1,3 @@
+patientId;isMultifocalTumor;regionalNodalMetastases;isTransitMetastasisWithClinicalConfirmation
+404;WAAR;ONWAAR;ONWAAR
+500;ONWAAR;WAAR;WAAR

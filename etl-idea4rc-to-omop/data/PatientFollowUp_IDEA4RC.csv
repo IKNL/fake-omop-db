@@ -1,0 +1,3 @@
+patientId;statusOfPatientAtLastFollowUp;statusOfDiseaseAtLastFollowUp;patientFollowUpDate
+404;2000100071;2000100002;2025-01-02
+500;2000100074;32946;2025-01-06
