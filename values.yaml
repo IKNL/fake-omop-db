@@ -1,0 +1,25 @@
+person:
+  person_id:
+    type: index
+  year_of_birth:
+    type: integer
+  gender_concept_id:
+    - 8507
+    - 8532
+  ethnicity_concept_id:
+    - 38003563
+    - 38003564
+  race_concept_id:
+    - 0
+    - 8515
+    - 8527
+    - 8516
+    - 8657
+death: 
+visit
+care_site
+condition_occurrence
+procedure_occurrence
+measurement
+observation
+episode
