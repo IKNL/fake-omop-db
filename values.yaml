@@ -1,24 +1,112 @@
+# Person
+#
+# Mandatory fields:
+# - person_id
+# - year_of_birth
+# - gender_concept_id
+# - ethnicity_concept_id
+# - race_concept_id
 person:
+  # unique identifier
   person_id:
     type: index
+  # year of birth
   year_of_birth:
-    type: integer
+    type: int_range
+    min: 1900
+    max: 2025
   gender_concept_id:
-    - 8507
-    - 8532
+    type: int_set
+    values:
+      - 8507
+      - 8532
   ethnicity_concept_id:
-    - 38003563
-    - 38003564
+    type: int_set
+    values:
+      - 38003563
+      - 38003564
   race_concept_id:
-    - 0
-    - 8515
-    - 8527
-    - 8516
-    - 8657
-death: 
-visit
-care_site
-condition_occurrence
+    type: int_set
+    values:
+      - 0
+      - 8515
+      - 8527
+      - 8516
+      - 8657
+
+# Death
+#
+# Mandatory fields:
+# - person_id
+# - death_date
+death:
+  person_id:
+    type: fk
+    table: person
+    column: person_id
+  death_date:
+    type: date
+    min: 01-01-1900
+    max: 12-31-2025
+
+# Visit
+#
+# Mandatory fields:
+# - person_id
+# - visit_start_date
+# - visit_end_date
+# - visit_concept_id
+visit:
+  visit_occurrence_id:
+    type: index
+  person_id:
+    type: fk
+    table: person
+    column: person_id
+  visit_start_date:
+    type: date
+    min: 01-01-1900
+    max: 12-31-2025
+  visit_end_date:
+    type: date
+    min: 01-01-1900
+    max: 12-31-2025
+  visit_concept_id:
+    type: int_set
+    values:
+      - 0
+
+# Care site
+#
+# Mandatory fields:
+# - care_site_id
+# - care_site_name
+care_site:
+  care_site_id:
+    type: index
+  care_site_name:
+    type: random_string
+    min_length: 3
+    max_length: 32
+
+# Condition occurrence
+#
+# Mandatory fields:
+# - condition_occurrence_id
+# - person_id
+# - condition_concept_id
+# - condition_start_date
+# - condition_type_concept_id
+
+condition_occurrence:
+  condition_occurrence_id:
+
+  person_id:
+    type: fk
+    table: person
+    column: person_id
+
+
 procedure_occurrence
 measurement
 observation
